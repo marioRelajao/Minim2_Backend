@@ -49,4 +49,7 @@ public interface JuegoManager {
     public Usuario getUsuario(int idUsuario);
 
     public Objeto updateObjeto(Objeto objeto, int id);
+    public List<FAQ> getPreguntas();
+    public int sizePreguntas();
+    public FAQ añadirFAQ(FAQ faq);
 }

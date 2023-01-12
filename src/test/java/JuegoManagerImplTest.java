@@ -25,6 +25,10 @@ public class JuegoManagerImplTest {
         jm.añadirObjeto(new Objeto(1,"Seiken","Espada legendaria de ESCANOR (un Dios entre humanos)",10000));
         jm.añadirObjeto(new Objeto(2,"Excalibur","Las leyendas ni se acercan a su verdadero poder",15000));
         jm.añadirObjeto(new Objeto(3,"Muramasa","La katana definitva (el poder corrompe a los mas debiles)",20000));
+//--------------------------MINIMO 2------------------------------------------------------------------------
+        jm.añadirFAQ(new FAQ("Como disparo?","Pulsando la pantalla crack"));
+        jm.añadirFAQ(new FAQ("Como me muevo?","Con el joystick crack"));
+        jm.añadirFAQ(new FAQ("Como mato a la colmena?","No se puede"));
     }
 
     @After
@@ -70,6 +74,18 @@ public class JuegoManagerImplTest {
         Objeto obj1 = objetos.get(2);
         Assert.assertEquals("Muramasa",obj1.getNombre());
         Assert.assertEquals(3,objetos.size());
+    }
+//--------------------------MINIMO 2------------------------------------------------------------------------
+
+    @Test
+    public void FAQs(){
+        logger.info("---Prueba con las FAQ's---");
+        List<FAQ> preguntas = this.jm.getPreguntas();
+        FAQ preg1 = preguntas.get(0);
+        Assert.assertEquals("Como disparo?",preg1.getPregunta());
+        Assert.assertEquals("Pulsando la pantalla crack",preg1.getRespuesta());
+
+        Assert.assertEquals(3,preguntas.size());
     }
 
 }

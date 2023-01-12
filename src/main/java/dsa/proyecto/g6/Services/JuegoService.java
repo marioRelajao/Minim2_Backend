@@ -37,6 +37,11 @@ public class JuegoService {
             this.jm.añadirObjeto(new Objeto(2,"Excalibur","Las leyendas ni se acercan a su verdadero poder",15000));
             this.jm.añadirObjeto(new Objeto(3,"Muramasa","La katana definitva (el poder corrompe a los mas debiles)",20000));
         }
+        if (jm.sizePreguntas()==0){
+            this.jm.añadirFAQ(new FAQ("Como disparo?","Pulsando la pantalla crack"));
+            this.jm.añadirFAQ(new FAQ("Como me muevo?","Con el joystick crack"));
+            this.jm.añadirFAQ(new FAQ("Como mato a la colmena?","No se puede"));
+        }
     }
 
     @POST
@@ -239,6 +244,22 @@ public class JuegoService {
         }
         else
             return Response.status(500).build();
+    }
+
+    @GET
+    @ApiOperation(value = "FAQs", notes = "Freq Asked Question")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful"),
+    })
+    @Path("/FAQs")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getFAQ() {
+        List<Usuario> listaUsuario = this.jm.getAllUsers();
+        GenericEntity<List<Usuario>> entity = new GenericEntity<List<Usuario>>(listaUsuario){};
+        //List<Usuario> tracks = this.jm.getAllUsers();
+        //GenericEntity<List<Usuario>> entity = new GenericEntity<List<Usuario>>(tracks) {};
+        return Response.status(201).entity(entity).build()  ;
+
     }
 
 }
