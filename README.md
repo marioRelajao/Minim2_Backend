@@ -1,9 +1,3 @@
-# PROJECTE DE DSA DEL GRUP 6
+# Minimo 2 Mario Cerdà Trigueros - FAQs
 
-Aquest repositori conté el projecte desenvolupat per a l'assignatura de "Disseny de Serveis i Aplicacions" impartit a l'EETAC - UPC.
-Els autors d'aquest projecte som:
-- Mikel Arina Marcos
-- Marcel
-- Mario
-- Pablo
-- Bryan
+Esta todo implementado en Backend, trabajando en memoria con 3 FAQ's diferentes
