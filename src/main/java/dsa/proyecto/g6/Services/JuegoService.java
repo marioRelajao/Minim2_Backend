@@ -246,19 +246,18 @@ public class JuegoService {
             return Response.status(500).build();
     }
 
+
     @GET
-    @ApiOperation(value = "FAQs", notes = "Freq Asked Question")
+    @ApiOperation(value = "Obten todas las preguntas", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Successful"),
+            @ApiResponse(code = 201, message = "Successful", response = FAQ.class, responseContainer="List"),
     })
     @Path("/FAQs")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getFAQ() {
-        List<Usuario> listaUsuario = this.jm.getAllUsers();
-        GenericEntity<List<Usuario>> entity = new GenericEntity<List<Usuario>>(listaUsuario){};
-        //List<Usuario> tracks = this.jm.getAllUsers();
-        //GenericEntity<List<Usuario>> entity = new GenericEntity<List<Usuario>>(tracks) {};
-        return Response.status(201).entity(entity).build()  ;
+    public Response getPreguntas() {
+        List<FAQ> preguntas = this.jm.getPreguntas();
+        GenericEntity<List<FAQ>> entity = new GenericEntity<List<FAQ>>(preguntas) {};
+        return Response.status(201).entity(entity).build();
 
     }
 
